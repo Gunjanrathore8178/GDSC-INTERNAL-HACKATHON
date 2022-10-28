@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Map</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+
+    <style>
+      #map{
+        width: 1400px;
+        height: 600px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <iframe
+      width="1400"
+      height="750"
+      src="https://embed.windy.com/embed2.html?lat=24.194&lon=79.250&detailLat=28.654&detailLon=77.237&width=650&height=450&zoom=5&level=surface&overlay=temp&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1"
+      frameborder="0"
+    ></iframe>
+    <script src="" async defer></script>
+
+    <!-- AQI map -->
+    <!-- <div id="map" style="height: 600px" />
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <script>
+      var map = new google.maps.Map(document.getElementById("map"), {
+        center: new google.maps.LatLng(28.7, 77.1),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoom: 11,
+      });
+
+      var t = new Date().getTime();
+      var waqiMapOverlay = new google.maps.ImageMapType({
+        getTileUrl: function (coord, zoom) {
+          return (
+            "https://tiles.aqicn.org/tiles/usepa-aqi/" +
+            zoom +
+            "/" +
+            coord.x +
+            "/" +
+            coord.y +
+            ".png?token=_TOKEN_ID_"
+          );
+        },
+        name: "Air  Quality",
+      });
+
+      map.overlayMapTypes.insertAt(0, waqiMapOverlay);
+    </script> -->
+    <!-- AIzaSyAz2eP7MnuS7F03p0NteH6GD0GJMFdCXEg -->
+
+    <!-- AIQ bing  -->
+    <!-- <div id="map" style="height: 380px" style="position: relative" />
+    <script
+      type="text/javascript"
+      src="https://www.bing.com/api/maps/mapcontrol?callback=initBingMap"
+      async
+      defer
+    ></script>
+
+    <script>
+      function initBingMap() {
+        var map = new Microsoft.Maps.Map(document.getElementById("map"), {
+          center: new Microsoft.Maps.Location(28.70, 77.10),
+          zoom: 11,
+        });
+
+        var options = {
+          uriConstructor:
+            "https://tiles.aqicn.org/tiles/usepa-aqi//{zoom}/{x}/{y}.png?token=_TOKEN_ID_",
+          minZoom: 1,
+          maxZoom: 15,
+        };
+        var waqiTileSource = new Microsoft.Maps.TileSource(options);
+        var waqiTilelayer = new Microsoft.Maps.TileLayer({
+          mercator: waqiTileSource,
+        });
+        map.layers.insert(waqiTilelayer);
+      }
+    </script> -->
+
+    <!-- AQI leaflet   -->
+    <div id="map"/>
+    <link
+      rel="stylesheet"
+      href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css"
+    />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+
+    <script>
+      var OSM_URL = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+      var OSM_ATTRIB =
+        '&copy;  <a  href="http://openstreetmap.org/copyright">OpenStreetMap</a>  contributors';
+      var osmLayer = L.tileLayer(OSM_URL, { attribution: OSM_ATTRIB });
+
+      var WAQI_URL =
+        "https://tiles.waqi.info/tiles/usepa-aqi/{z}/{x}/{y}.png?token=_TOKEN_ID_";
+      var WAQI_ATTR =
+        'Air  Quality  Tiles  &copy;  <a  href="http://waqi.info">waqi.info</a>';
+      var waqiLayer = L.tileLayer(WAQI_URL, { attribution: WAQI_ATTR });
+
+      var map = L.map("map").setView([28.7, 77.1], 11);
+      map.addLayer(osmLayer).addLayer(waqiLayer);
+    </script>
+  </body>
+</html>
