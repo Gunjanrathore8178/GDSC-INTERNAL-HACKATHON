@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static './css/style.css' %}">
 
     <title>CLIMATE</title>
 </head>
@@ -32,7 +33,7 @@
        <nav class="navbar navbar-expand-lg navbar-dark "> 
 
         <a class="navbar-brand" href="#">
-          <img src="climatelogo.jpg" width="30" height="30" alt="">
+          <img src="{% static './img/climatelogo.jpg' %}" width="30" height="30" alt="">
         </a>
         <a class="navbar-brand" href="#">CLIMATE</a>
         <button
